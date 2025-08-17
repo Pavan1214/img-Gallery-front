@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinterest-Style Masonry Grid</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body id="home">
+  <header>
+    <div class="wrap">
+      <a style="text-decoration: none;color: white;" href="#home">
+        <h1>Design'S</h1>
+      </a>
+
+      <!-- Toolbar Search -->
+      <div class="toolbar">
+        <input id="search" type="text" placeholder="Search by title or designs....." />
+      </div>
+
+      <!-- Menu Button -->
+      <div class="menu-btn">
+        <button id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <nav id="menu" class="menu">
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#designs">Designs</a>
+          <a href="">Reload</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Recent Uploads Carousel -->
+    <section class="rel-carousel-section">
+      <h3 style="color: rgb(132, 158, 171);">Recent Uploads</h3>
+      <div id="recent-container" class="rel-carousel"></div>
+    </section>
+
+    <!-- Favourites Carousel -->
+    <section class="rel-carousel-section">
+      <h3 style="color: rgb(138, 91, 81);">Favourites</h3>
+      <div id="favourites-container" class="rel-carousel"></div>
+    </section>
+
+    <!-- Masonry Grid -->
+    <div style="display: flex;align-items: center;justify-content: center;" class="cards-heading">
+      <h3 id="designs">Designs</h3>
+    </div>
+    <div class="masonry" id="masonry">
+    </div>
+  </main>
+
+  <!-- Pin Page Modal -->
+  <div class="pin-modal" id="pin-modal">
+    <div class="pin-sheet">
+      <div class="pin-media">
+        <img id="pin-img" src="" alt="Pin Image" loading="lazy" />
+      </div>
+      <div class="pin-meta">
+        <button class="pin-close" id="pin-close">✕</button>
+        <h2 id="pin-title"></h2>
+        <div class="pin-tags" id="pin-tags"></div>
+        <div style="display:flex; gap:10px; margin-bottom:12px;">
+          <button id="fav-btn" style="font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-heart"></i></button>
+          <button id="dl-btn" style="font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-download"></i></button>
+        </div>
+        <div class="rel-title">Related Images</div>
+        <div id="rel-carousel" class="rel-carousel"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <footer>
+    <div class="hint">Replace demo images with your Cloudinary links for production.</div>
+  </footer> -->
+
+
+  <footer class="site-contact-footer">
+    <div class="wrap">
+      <p id="contact">connect with us:</p>
+      <div class="social-icons">
+        <a href="tel:+1234567890" title="Call us"><i class="fa-solid fa-phone"></i></a>
+        <a href="mailto:info@yoursite.com" title="Email us"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <footer id="about" class="site-footer">
+    <div class="wrap">
+      <p>© 2025 Designs. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+
+  <!-- Loader Overlay -->
+<div id="loader-overlay">
+  <div class="loader"></div>
+  <div class="progress-bar">
+    <div id="progress"></div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
