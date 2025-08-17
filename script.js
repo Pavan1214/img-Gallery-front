@@ -1,4 +1,4 @@
-const API_URL = "https://image-backend-t48h.onrender.com/api/images";
+const API_URL = "https://image-backend-t48h.onrender.com/images";
 
 let images = [];
 let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
@@ -299,3 +299,4 @@ document.addEventListener("click", (e) => {
     menu.classList.remove("active");
   }
 });
+
