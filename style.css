@@ -572,9 +572,10 @@ h1 {
 /* Favorite & Download Buttons */
 #fav-btn,
 #dl-btn {
-  background: transparent !important;
+  background: rgb(30, 30, 30) !important;
   border: none !important;
-  padding: 0;
+  border-radius: 12px;
+  padding: 2px;
   box-shadow: none !important;
 }
 
