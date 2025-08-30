@@ -352,7 +352,6 @@ h1 {
   grid-template-columns: 1.2fr 1fr;
   gap: 0;
   height: auto;           /* allow full height */
-  overflow: visible;      /* allow scroll inside modal */
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   padding-bottom: 40px;   /* space for carousel */
   scroll-behavior: smooth;
@@ -364,7 +363,8 @@ h1 {
   position: absolute;
   top: 18px;
   right: 28px;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.177);
+  border-radius: 50%;
   border: 0;
   font-size: 24px;
   color: #fff;
@@ -393,8 +393,10 @@ h1 {
 }
 
 .pin-meta h2 {
-  margin: 0 0 10px 0;
-  font-size: 1.6rem;
+  color: white;
+  -webkit-text-stroke: .5px black;
+  font-size: 29px;
+  font-weight: bold;
 }
 
 .pin-tags {
