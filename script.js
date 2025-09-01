@@ -106,7 +106,7 @@ function renderMasonry(list) {
 }
 
 function renderRecent(list) {
-  const recent = list.slice(0, 10);
+  const recent = list.slice(0, 18);
   recentContainer.innerHTML = recent.map(relCardTemplate).join("");
 }
 
@@ -299,5 +299,6 @@ document.addEventListener("click", (e) => {
     menu.classList.remove("active");
   }
 });
+
 
 
