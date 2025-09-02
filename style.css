@@ -7,6 +7,7 @@
   --radius: 20px;
   --gap: 16px;
 }
+
 html{
   scroll-behavior: smooth;
 }
@@ -17,7 +18,7 @@ html{
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-  background: linear-gradient(180deg, #0b0d10, #0b0d10 40%, #0f141a);
+  background:#0f141a;
   color: var(--text);
 }
 
@@ -342,77 +343,6 @@ h1 {
   color: #111;
 }
 
-/* Sheet adjustments */
-.pin-sheet {
-  background: #111;
-  border-radius: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 0;
-  height: auto;           /* allow full height */
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  padding-bottom: 40px;   /* space for carousel */
-  scroll-behavior: smooth;
-}
-
-
-/* Close button */
-.pin-close {
-  position: absolute;
-  top: 18px;
-  right: 28px;
-  background: rgba(0, 0, 0, 0.177);
-  border-radius: 50%;
-  border: 0;
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Media (left) */
-.pin-media {
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-}
-
-.pin-media img {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-}
-
-/* Meta (right) */
-.pin-meta {
-  padding: 24px 24px 16px 24px;
-  color: #eee;
-}
-
-.pin-meta h2 {
-  color: white;
-  -webkit-text-stroke: .5px black;
-  font-size: 29px;
-  font-weight: bold;
-}
-
-.pin-tags {
-  margin-bottom: 16px;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-.pin-tags span {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 4px 10px;
-  background: #1b1b1b;
-  border-radius: 999px;
-  font-size: 0.95rem;
-}
 
 /* Related carousel */
 .rel-title {
@@ -506,63 +436,6 @@ h1 {
   animation-delay: 1s;
 }
 
-
-/* Pin Modal */
-.pin-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(18,18,18,0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 2500;
-}
-
-.pin-modal.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Pin sheet animation */
-.pin-sheet {
-  background: #121212;
-  max-width: 900px;
-  width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transform: scale(0.8);
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.pin-modal.open .pin-sheet {
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* Optional: image fade in */
-.pin-media img {
-  width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.pin-modal.open .pin-media img {
-  opacity: 1;
-}
-
-/* Prevent scrolling when modal is open */
 /* Freeze background without losing scroll */
 .body-no-scroll {
   position: fixed;
@@ -632,13 +505,6 @@ h1 {
 
 /* Responsive */
 @media (max-width: 980px) {
-  .pin-sheet {
-    grid-template-columns: 1fr;
-  }
-
-  .pin-media {
-    min-height: 40vh;
-  }
 }
 /* Responsive column counts */
 @media (min-width:520px) {
@@ -667,4 +533,140 @@ h1 {
 
 .fav-active {
   color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Gallery Modal */
+#gallery-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40px 20px 60px 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Modal content wrapper */
+#gallery-modal div {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Main Image */
+#gallery-modal img {
+  max-width: 90%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* Title */
+#gallery-modal h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 12px;
+  font-size: clamp(18px, 2vw, 28px);
+}
+
+/* Buttons container */
+#gallery-modal button#fav-btn,
+#gallery-modal button#dl-btn {
+  margin: 0 5px;
+  background: rgb(30, 30, 30);
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+}
+
+#gallery-modal button#fav-btn i.fav-active {
+  color: red;
+}
+
+/* Related images container */
+#gallery-rel-container {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+#gallery-rel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+#gallery-rel-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+/* Small related image cards */
+#gallery-rel-container .rel-card {
+  flex: 0 0 auto;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#gallery-rel-container .rel-card img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+#gallery-rel-container .rel-card p {
+  font-size: 0.8rem;
+  color: #eee;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+/* Close Button */
+#gallery-modal button.close-btn {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border: 0;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+  #gallery-modal img {
+    max-height: 50vh;
+  }
+
+  #gallery-rel-container .rel-card {
+    width: 90px;
+  }
+}
+
+@media (max-width: 520px) {
+  #gallery-modal img {
+    max-height: 40vh;
+  }
+
+  #gallery-rel-container .rel-card {
+    width: 70px;
+  }
 }
