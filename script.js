@@ -224,14 +224,20 @@ dlBtn.addEventListener("click", async()=>{
   }catch(err){console.error(err); showToast("Download failed");}
 });
 
-// Swipe support
-let touchStartX=0;
-galleryModal.addEventListener("touchstart", e=>{ touchStartX=e.changedTouches[0].screenX; });
-galleryModal.addEventListener("touchend", e=>{
-  const touchEndX=e.changedTouches[0].screenX;
-  if(touchEndX-touchStartX>50) prevImage();
-  if(touchStartX-touchEndX>50) nextImage();
+// Swipe support only on main image
+let touchStartX = 0;
+const mainImg = document.getElementById("gallery-main-img");
+
+mainImg.addEventListener("touchstart", e => {
+  touchStartX = e.changedTouches[0].screenX;
 });
+
+mainImg.addEventListener("touchend", e => {
+  const touchEndX = e.changedTouches[0].screenX;
+  if (touchEndX - touchStartX > 50) prevImage();
+  if (touchStartX - touchEndX > 50) nextImage();
+});
+
 
 // Arrow keys
 document.addEventListener("keydown", e=>{
@@ -275,5 +281,3 @@ document.addEventListener("click", (e) => {
 
 // Ensure menu is above gallery modal
 menu.style.zIndex = "3001"; // gallery modal is 2500
-
-
