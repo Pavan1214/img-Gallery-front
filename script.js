@@ -256,3 +256,24 @@ window.addEventListener("popstate", e=>{
 });
 // Initial fetch
 fetchImages();
+
+// --- Menu Toggle ---
+const menuToggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+
+menuToggle.addEventListener("click", (e) => {
+  e.stopPropagation(); // prevent the document click from immediately closing menu
+  menu.classList.toggle("active");
+});
+
+// Close menu if click outside
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+    menu.classList.remove("active");
+  }
+});
+
+// Ensure menu is above gallery modal
+menu.style.zIndex = "3001"; // gallery modal is 2500
+
+
