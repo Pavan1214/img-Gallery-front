@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pinterest-Style Masonry Grid</title>
+  <title>Pavan</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
@@ -15,7 +15,7 @@
   <header>
     <div class="wrap">
       <a style="text-decoration: none;color: white;" href="#home">
-        <h1>Paper</h1>
+        <h1>Laxmi</h1>
       </a>
 
       <!-- Toolbar Search -->
@@ -39,7 +39,7 @@
   <main>
     <!-- Recent Uploads Carousel -->
     <section class="rel-carousel-section">
-      <h3 style="color: rgb(132, 158, 171);">Recent Uploads</h3>
+      <h3 style="color: rgb(132, 158, 171);">Recent</h3>
       <div id="recent-container" class="rel-carousel"></div>
     </section>
 
@@ -57,30 +57,10 @@
     </div>
   </main>
 
-  <!-- Pin Page Modal -->
-  <div class="pin-modal" id="pin-modal">
-    <div class="pin-sheet">
-      <div class="pin-media">
-        <img id="pin-img" src="" alt="Pin Image" loading="lazy" />
-      </div>
-      <div class="pin-meta">
-        <button  class="pin-close" id="pin-close">✕</button>
-        <h2 id="pin-title"></h2>
-        <div class="pin-tags" id="pin-tags"></div>
-        <div style="display:flex; gap:10px; margin-bottom:12px;">
-          <button id="fav-btn" style="font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-heart"></i></button>
-          <button id="dl-btn" style="font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-download"></i></button>
-        </div>
-        <div class="rel-title">Related Images</div>
-        <div id="rel-carousel" class="rel-carousel"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- <footer>
     <div class="hint">Replace demo images with your Cloudinary links for production.</div>
   </footer> -->
-
 
   <footer class="site-contact-footer">
     <div class="wrap">
@@ -98,7 +78,7 @@
 
   <footer id="about" class="site-footer">
     <div class="wrap">
-      <p>© 2025 Designs. All rights reserved.</p>
+      <p>© 2025 Laxmi. All rights reserved.</p>
     </div>
   </footer>
 
@@ -109,6 +89,25 @@
     <div id="progress"></div>
   </div>
 </div>
+
+<!-- Full-View Gallery Modal -->
+<div id="gallery-modal" class="gallery-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(18,18,18,0.95); z-index:2500; justify-content:center; align-items:flex-start; overflow-y:auto;">
+  <button class="close-btn">✕</button>
+  <div>
+    <!-- Main Image -->
+    <img id="gallery-main-img" src="" alt="Image" />
+    <!-- Title -->
+    <h2 id="gallery-title"></h2>
+    <!-- Buttons -->
+    <div style="text-align:center; margin-bottom:12px;">
+      <button id="fav-btn"><i class="fa-solid fa-heart"></i></button>
+      <button id="dl-btn"><i class="fa-solid fa-download"></i></button>
+    </div>
+    <!-- Related Images Feed -->
+    <div id="gallery-rel-container"></div>
+  </div>
+</div>
+
 
   <script src="script.js"></script>
 </body>
