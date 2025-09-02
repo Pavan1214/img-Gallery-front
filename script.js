@@ -224,20 +224,16 @@ dlBtn.addEventListener("click", async()=>{
   }catch(err){console.error(err); showToast("Download failed");}
 });
 
-// Swipe support only on main image
 let touchStartX = 0;
-const mainImg = document.getElementById("gallery-main-img");
-
-mainImg.addEventListener("touchstart", e => {
+galleryImg.addEventListener("touchstart", e => {
   touchStartX = e.changedTouches[0].screenX;
 });
 
-mainImg.addEventListener("touchend", e => {
+galleryImg.addEventListener("touchend", e => {
   const touchEndX = e.changedTouches[0].screenX;
   if (touchEndX - touchStartX > 50) prevImage();
   if (touchStartX - touchEndX > 50) nextImage();
 });
-
 
 // Arrow keys
 document.addEventListener("keydown", e=>{
