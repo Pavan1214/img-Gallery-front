@@ -17,7 +17,7 @@ galleryModal.id = "gallery-modal";
 galleryModal.className = "gallery-modal";
 galleryModal.style.cssText = `
   position: fixed; top:0; left:0; width:100%; height:100%;
-  background: rgba(0, 0, 0, 1); display:flex; flex-direction:column;
+  background: rgba(212, 212, 212, 1); display:flex; flex-direction:column;
   justify-content:flex-start; align-items:center; opacity:0; pointer-events:none;
   overflow-y:auto; transition:opacity 0.4s ease; z-index:2500; padding:40px 0;
 `;
@@ -46,7 +46,7 @@ galleryContent.appendChild(galleryImg);
 
 // Title
 const galleryTitle = document.createElement("h2");
-galleryTitle.style.cssText = "color:#fff; margin-bottom:12px; text-align:center;";
+galleryTitle.style.cssText = "color:black; margin-bottom:12px; text-align:center;";
 galleryContent.appendChild(galleryTitle);
 
 // Buttons container
@@ -224,15 +224,13 @@ dlBtn.addEventListener("click", async()=>{
   }catch(err){console.error(err); showToast("Download failed");}
 });
 
-let touchStartX = 0;
-galleryImg.addEventListener("touchstart", e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-galleryImg.addEventListener("touchend", e => {
-  const touchEndX = e.changedTouches[0].screenX;
-  if (touchEndX - touchStartX > 50) prevImage();
-  if (touchStartX - touchEndX > 50) nextImage();
+// Swipe support
+let touchStartX=0;
+galleryModal.addEventListener("touchstart", e=>{ touchStartX=e.changedTouches[0].screenX; });
+galleryModal.addEventListener("touchend", e=>{
+  const touchEndX=e.changedTouches[0].screenX;
+  if(touchEndX-touchStartX>50) prevImage();
+  if(touchStartX-touchEndX>50) nextImage();
 });
 
 // Arrow keys
