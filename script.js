@@ -131,7 +131,7 @@ function relCardTemplate({ _id,title,url }) {
   return `
     <div class="rel-card" data-id="${_id}" style="flex:0 0 auto; width:120px; text-align:center; cursor:pointer;">
       <img src="${url}" style="width:100%; border-radius:8px;" />
-      <p style="font-size:0.8rem; color:#eee; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${title}</p>
+      <p style="font-size:0.8rem; color:black; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${title}</p>
     </div>
   `;
 }
@@ -188,7 +188,7 @@ function showImage(img){
   galleryImg.src=img.url;
   galleryTitle.textContent=img.title;
   favBtn.innerHTML=`<i class="fa-solid fa-heart ${favourites.includes(img._id)?"fav-active":""}"></i>`;
-  const related = images.filter(i=>i._id!==img._id && i.tags.some(t=>img.tags.includes(t))).slice(0,20);
+  const related = images.filter(i=>i._id!==img._id && i.tags.some(t=>img.tags.includes(t))).slice(0,100);
   relContainer.innerHTML=related.map(relCardTemplate).join("");
 }
 
