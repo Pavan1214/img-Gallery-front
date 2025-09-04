@@ -225,23 +225,13 @@ dlBtn.addEventListener("click", async()=>{
 });
 
 // // Swipe support
-// Swipe support (ignore carousel swipes)
-let touchStartX = 0;
-galleryModal.addEventListener("touchstart", e => { 
-  // Don't start swipe if inside carousel
-  if (e.target.closest("#gallery-rel-container")) return;
-  touchStartX = e.changedTouches[0].screenX; 
-});
-
-galleryModal.addEventListener("touchend", e => {
-  // Ignore swipe if it started inside carousel
-  if (e.target.closest("#gallery-rel-container")) return;
-
-  const touchEndX = e.changedTouches[0].screenX;
-  if (touchEndX - touchStartX > 50) prevImage();   // Swipe right → previous
-  if (touchStartX - touchEndX > 50) nextImage();   // Swipe left → next
-});
-
+// let touchStartX=0;
+// galleryModal.addEventListener("touchstart", e=>{ touchStartX=e.changedTouches[0].screenX; });
+// galleryModal.addEventListener("touchend", e=>{
+//   const touchEndX=e.changedTouches[0].screenX;
+//   if(touchEndX-touchStartX>50) prevImage();
+//   if(touchStartX-touchEndX>50) nextImage();
+// });
 
 // Arrow keys
 document.addEventListener("keydown", e=>{
